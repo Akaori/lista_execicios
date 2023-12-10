@@ -5,31 +5,34 @@ import java.util.Scanner;
 
 public class Questao2 {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        int[][] turma = {
+                {9, 8, 7, 8},
+                {10, 9, 8, 9},
+                {9, 8, 7, 8}
+        };
 
-        System.out.print("Qual o seu nome?\n");
-        String nome = input.nextLine();
+        int numAlunos = turma.length;
 
-        System.out.printf("Qual o seu sexo?%n");
-        String sexo = input.nextLine();
+        int numNotas = turma[0].length;
 
-        System.out.printf("Qual a sua idade?%n");
-        int idade = Integer.parseInt(input.nextLine());
+        int somaTurma = 0;
 
-        System.out.println("Qual a sua altura?");
-        double altura = Double.parseDouble(input.nextLine());
+        for (int i = 0; i < numAlunos; i++) {
+            int somaAluno = 0;
 
-        System.out.println("Qual o seu salário?");
-        double salario = Double.parseDouble(input.nextLine());
+            for (int j = 0; j < numNotas; j++) {
+                somaAluno += turma[i][j];
+            }
 
-        input.close();
+            double mediaAluno = (double) somaAluno / numNotas;
 
-        System.out.printf("Nome: %s%nSexo: %s%nIdade: %d%nAltura: %.2f%nSalário: R$%.2f",
-                            nome,
-                            sexo,
-                            idade,
-                            altura,
-                            salario
-                );
+            System.out.printf("Aluno %d - Média %.1f\n", i, mediaAluno);
+
+            somaTurma += somaAluno;
+        }
+
+        double mediaTurma = (double) somaTurma / (numAlunos * numNotas);
+
+        System.out.printf("Média da turma: %.2f\n", mediaTurma);
     }
 }
