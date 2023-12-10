@@ -6,15 +6,25 @@ import static java.lang.Integer.parseInt;
 
 public class Questao1 {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        System.out.println("Soma: " + somar(10, 5));
+        System.out.println("Subtração: " + subtrair(10, 5));
+        System.out.println("Divisão: " + dividir(10, 5));
+        System.out.println("Multiplicação: " + multiplicar(10, 5));
+    }
 
-        System.out.print("Qual o seu nome?\n");
-        String nome = input.nextLine();
+    public static double somar(double a, double b) {
+        return a + b;
+    }
 
-        System.out.printf("Qual a sua idade?%n");
-        int idade = parseInt(input.nextLine());
+    public static double subtrair(double a, double b) {
+        return a - b;
+    }
 
-        System.out.println("Qual a sua profissão?");
-        String profissao = input.nextLine();
+    public static double dividir(double a, double b) {
+        return a / b;
+    }
+
+    public static double multiplicar(double a, double b) {
+        return a * b;
     }
 }

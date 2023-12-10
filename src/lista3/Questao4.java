@@ -1,29 +1,30 @@
 package lista3;
 
+import java.util.Scanner;
+
 public class Questao4 {
 
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
 
-        double baseRetangulo = 5;
-        double alturaRetangulo = 10;
-        double areaRetangulo = baseRetangulo * alturaRetangulo;
-        System.out.printf("A área do retângulo é: %.2f%n", areaRetangulo);
+        System.out.println("Digite o nome do funcionário:");
+        String nome = input.nextLine();
 
-        double baseTriangulo = 5;
-        double alturaTriangulo = 10;
-        double areaTriangulo = (baseTriangulo * alturaTriangulo) / 2;
-        System.out.printf("A área do triângulo é: %.2f%n", areaTriangulo);
+        System.out.println("Digite o número de horas trabalhadas por mês:");
+        int horas = input.nextInt();
 
+        System.out.println("Digite o valor da hora:");
+        double valor = input.nextDouble();
 
-        double raioCirculo = 15;
-        double areaCirculo = Math.PI * raioCirculo * raioCirculo;
-        System.out.printf("A área do círculo é: %.2f%n", areaCirculo);
+        input.close();
 
-        double baseMaior = 15;
-        double baseMenor = 10;
-        double altura = 5;
-        double areaTrapezio = ((baseMaior + baseMenor) * altura) / 2;
-        System.out.printf("A área do trapézio é: %.2f%n", areaTrapezio);
+        double resultado = calcularSalarioAnual(nome, horas, valor);
 
+        System.out.printf("O salário anual de %s é: %.2f%n", nome, resultado);
+    }
+
+    public static double calcularSalarioAnual(String nome, int horas, double valorHora) {
+        double salarioMensal = horas * valorHora;
+        return salarioMensal * 12;
     }
 }

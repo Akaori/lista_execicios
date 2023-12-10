@@ -1,22 +1,28 @@
 package lista3;
 
+import java.util.Scanner;
+
 public class Questao3 {
 
     public static void main(String[] args) {
-        // Modulo 01
-        // Memoria disponivel: 3 bytes
-        short anoAtualDaMissao = 9999;  // 2 byte
-        byte qtdFuncionarios = 100;  // 1 byte
+        Scanner input = new Scanner(System.in);
 
-        // Modulo 02
-        // Memoria disponivel: 6 bytes
-        int distanciaSatelite = 2000000;  // 4 bytes
-        short velocidadeMaxima = 30000;  // 2 bytes
+        System.out.println("Digite um número inteiro:");
+        int num = input.nextInt();
 
-        // Modulo 03
-        // Memoria disponivel: 17 bytes
-        boolean iniciouMissao = true; // 1 bit
-        long distanciaPercorrida = 3_000_000_000L; //8 bytes
-        double calibragemAntenas = 1.12345678912345; // 8 bytes
+        int fatorial = calcularFatorial(num);
+
+        System.out.println("O fatorial é " + fatorial);
     }
+
+    public static int calcularFatorial(int num) {
+        int resultado = 1;
+
+        for (int i = 1; i <= num; i++) {
+            resultado = resultado * i;
+        }
+
+        return resultado;
+    }
+
 }
