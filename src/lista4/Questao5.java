@@ -1,23 +1,32 @@
 package lista4;
 
-import java.util.Scanner;
-
 public class Questao5 {
 
     public static void main(String[] args) {
+        int[] nums = {1, 2, 3, 2, 1};
 
-        Scanner input = new Scanner(System.in);
+        int pivot = -1;
+        int total = 0;
 
-        System.out.println("Qual o seu peso ? (Em Kg)");
-        double peso = input.nextDouble();
+        for (int num : nums) {
+            total += num;
+        }
 
-        System.out.println("Qual a sua altura ? (Em metros)");
-        double altura = input.nextDouble();
+        int leftSum = 0;
 
-        double imc = peso / (altura * altura);
+        for (int i = 0; i < nums.length; i++) {
+            if (leftSum == total - leftSum - nums[i]) {
+                pivot = i;
+                break;
+            } else {
+                leftSum += nums[i];
+            }
+        }
 
-        System.out.printf("O IMC é: %.2f", imc);
-
-        input.close();
+        if (pivot != -1) {
+            System.out.println("O índice pivô da matriz é " + pivot + ".");
+        } else {
+            System.out.println("Não existe índice pivô na matriz.");
+        }
     }
 }
